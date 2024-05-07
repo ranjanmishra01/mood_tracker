@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <section class="hero-content">
+        <div id="dateDisplay"></div>
+        <div id="timeDisplay"></div>
+        <div id="todayMoodBtn">
+            <button onclick="window.location.href='moodpage.html'">Today's MOOD 📝</button>
+        </div>
+    </section>
+
+    <script>// Get today's date
+        var today = new Date();
+        
+        // Format options for the weekday
+        var weekdayOptions = { weekday: 'long' };
+        // Format options for the complete date
+        var dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        
+        // Format the weekday and complete date separately
+        var formattedWeekday = today.toLocaleDateString('en-IN', weekdayOptions);
+        var formattedDate = today.toLocaleDateString('en-IN', dateOptions);
+        
+        // Combine the formatted weekday and date with a line break
+        var formattedDateTime = formattedWeekday + '<br>' + formattedDate;
+        
+        // Display the formatted date and time on the homepage
+        document.getElementById('dateDisplay').innerHTML = formattedDateTime;
+
+        function updateClock() {
+
+
+        var currentTime = new Date();
+        
+        // Format time
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        
+        // Add leading zeros if needed
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+        
+        // Display time
+        var timeString = hours + ":" + minutes + ":" + seconds;
+        document.getElementById('timeDisplay').innerHTML = timeString;
+        }
+
+        // Update time every second
+        setInterval(updateClock, 1000);
+        </script>
+
+</body>
+</html>

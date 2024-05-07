@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="secondstyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="inputForm">
+        <form id="mood-entry-form">
+            <label for="mood-date">Today Date:</label>
+            <input type="date" id="mood-date" name="mood-date" required>
+
+    <h2>Mood Selection</h2>
+        <select id="mood-select" name="mood" required>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="anxious">Anxious</option>
+        </select>
+
+    <h3>Notes <span style="font-size: small; font-weight: 300;">[how are you feeling]</span></h3>
+        <textarea id="mood-notes" name="mood-notes" rows="4" cols="50" placeholder="Write more about your mood today..." required></textarea>
+        <br>
+
+        <input type="submit" value="Save Mood Entry" id="submitBtn">
+    </form>
+    </div>
+
+</section>
+<!-- 
+<section class="history">
+    <div class="data-history">
+        <h2>Mood History</h2>
+        <table id="mood-history-table">
+            <thead>
+                <tr>
+                <th>Date</th>
+                <th>Mood</th>
+                <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="mood-history-entries">
+            </tbody>
+        </table>
+
+    </div>
+</section> -->
+
+<script src="script.js"></script>
+<script>
+    // Get today's date
+    var today = new Date();
+    
+    // Format today's date as yyyy-mm-dd for input type date
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    var yyyy = today.getFullYear();
+    
+    var todayDate = yyyy + '-' + mm + '-' + dd;
+    
+    // Set the value of the input element to today's date
+    var date = document.getElementById('mood-date');
+    date.value = todayDate;
+    date.max = todayDate;
+    </script>
+</body>
+</html>
